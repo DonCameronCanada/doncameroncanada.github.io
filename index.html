@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cameron Software</title>
+<meta name="description" content="Cameron Software builds software products for spatial data, digital twins and immersive 3D. Based in Victoria, BC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fog: #E9EEEF;
+    --paper: #F6F8F8;
+    --ink: #17262D;
+    --muted: #4C5E66;
+    --sea: #1D6B73;
+    --contour: #9DBCC0;
+    --rule: #C9D6D8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fog: #13222A;
+      --paper: #182A33;
+      --ink: #E6EEF0;
+      --muted: #A3B6BC;
+      --sea: #6CC1C8;
+      --contour: #2E4E57;
+      --rule: #2A3F48;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--fog);
+    color: var(--ink);
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-variation-settings: "wdth" 100;
+  }
+  a { color: var(--sea); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Hero: the contour map is the one bold element */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--rule); }
+  .hero svg.map { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero svg.map path { fill: none; stroke: var(--contour); stroke-width: 1.2; }
+  .hero svg.map path.index { stroke-width: 2; }
+  .hero .wrap { position: relative; padding-top: 2rem; padding-bottom: 7rem; }
+  nav { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+  nav .mark { font-weight: 700; font-variation-settings: "wdth" 112; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
+  nav ul a { color: var(--ink); text-decoration: none; }
+  nav ul a:hover { color: var(--sea); }
+
+  h1 {
+    margin: 6rem 0 0;
+    font-size: clamp(3rem, 11vw, 8.5rem);
+    line-height: 0.88;
+    font-weight: 800;
+    font-variation-settings: "wdth" 66;
+    letter-spacing: -0.02em;
+    max-width: 9ch;
+  }
+  .lede { margin: 2rem 0 0; max-width: 34rem; font-size: 1.25rem; line-height: 1.5; color: var(--muted); }
+  .coords { margin-top: 2.5rem; font-size: 0.875rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  section { padding: 5rem 0; border-bottom: 1px solid var(--rule); }
+  h2 {
+    margin: 0 0 2rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    font-weight: 700;
+    font-variation-settings: "wdth" 80;
+  }
+  .split { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
+  .split p { margin: 0 0 1rem; max-width: 40rem; }
+
+  .areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 1rem; }
+  .areas div { padding: 1.5rem 1.5rem 1.5rem 0; border-top: 2px solid var(--ink); }
+  .areas div + div { padding-left: 1.5rem; border-left: 1px solid var(--rule); }
+  .areas h3 { margin: 0 0 0.5rem; font-size: 1.125rem; font-weight: 700; }
+  .areas p { margin: 0; color: var(--muted); font-size: 1rem; }
+
+  .work { list-style: none; margin: 0; padding: 0; }
+  .work li { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .work li:last-child { border-bottom: 1px solid var(--rule); }
+  .work .t { font-weight: 600; }
+  .work .s { color: var(--muted); font-size: 0.9375rem; }
+  .work a { white-space: nowrap; align-self: center; }
+
+  .contact { background: var(--paper); }
+  .contact .big {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: clamp(1.1rem, 2.6vw, 2rem);
+    font-weight: 700;
+    font-variation-settings: "wdth" 80;
+    word-break: break-word;
+  }
+  footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.875rem; }
+
+  @media (max-width: 760px) {
+    .split { grid-template-columns: 1fr; gap: 1rem; }
+    .areas { grid-template-columns: 1fr; }
+    .areas div + div { padding-left: 0; border-left: 0; }
+    .work li { grid-template-columns: 1fr; gap: 0.25rem; }
+    h1 { margin-top: 4rem; }
+    .hero .wrap { padding-bottom: 4rem; }
+    section { padding: 3.5rem 0; }
+    .wrap { padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="map" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g transform="translate(860 300)">
+      <path class="index" d="M-420,40 C-380,-200 -120,-330 120,-300 C360,-270 470,-60 410,150 C350,360 80,430 -150,380 C-360,335 -455,215 -420,40Z"/>
+      <path d="M-350,40 C-315,-160 -100,-265 100,-240 C300,-215 395,-45 345,130 C295,305 70,360 -120,320 C-295,283 -380,185 -350,40Z"/>
+      <path d="M-285,35 C-255,-125 -85,-205 80,-185 C245,-165 320,-30 280,110 C240,250 55,295 -95,262 C-235,232 -308,152 -285,35Z"/>
+      <path d="M-220,30 C-196,-90 -65,-150 60,-135 C185,-120 245,-20 215,90 C185,195 45,230 -70,205 C-178,182 -238,120 -220,30Z"/>
+      <path class="index" d="M-160,25 C-142,-62 -48,-105 42,-94 C132,-83 175,-12 154,68 C133,145 33,170 -50,152 C-128,135 -173,90 -160,25Z"/>
+      <path d="M-102,20 C-90,-36 -30,-63 27,-56 C84,-49 112,-6 98,45 C84,94 21,110 -32,99 C-82,88 -110,60 -102,20Z"/>
+      <path d="M-48,15 C-42,-12 -13,-26 14,-22 C41,-19 54,2 47,26 C40,49 10,56 -15,51 C-39,46 -52,33 -48,15Z"/>
+      <path d="M-500,60 C-460,-270 -150,-420 150,-380 C440,-340 560,-80 490,190 C420,450 90,520 -190,465 C-440,415 -540,280 -500,60Z"/>
+      <path d="M-590,70 C-545,-340 -180,-510 175,-465 C520,-420 660,-100 575,230 C490,545 105,630 -230,560 C-525,500 -640,345 -590,70Z"/>
+      <path class="index" d="M-690,80 C-640,-420 -210,-610 205,-560 C610,-510 770,-120 670,270 C570,650 120,750 -270,665 C-615,590 -750,415 -690,80Z"/>
+      <path d="M-800,95 C-745,-500 -245,-720 235,-660 C705,-600 890,-145 775,315 C660,760 140,875 -315,775 C-715,688 -870,490 -800,95Z"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="mark" href="/">Cameron Software</a>
+      <ul>
+        <li><a href="#build">What we build</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>Software for the real world.</h1>
+    <p class="lede">Cameron Software builds products that turn maps, models and live data into places people can see, explore and decide in.</p>
+    <p class="coords">Victoria, British Columbia &nbsp;48.43° N, 123.37° W</p>
+  </div>
+</header>
+
+<main>
+  <section id="build">
+    <div class="wrap">
+      <div class="split">
+        <h2>What we build</h2>
+        <div>
+          <p>We make software products, not one-off projects. Each one starts small and local, proves itself with real users, and is built from day one to scale nationally and beyond.</p>
+          <p>Our roots are in the places where the physical and digital worlds meet:</p>
+        </div>
+      </div>
+      <div class="areas">
+        <div>
+          <h3>Digital twins</h3>
+          <p>Live models of buildings, sites and operations, fed by real data and readable at a glance.</p>
+        </div>
+        <div>
+          <h3>Geospatial 3D</h3>
+          <p>Any data, anywhere, on any device, from a phone to a headset to a wall of screens.</p>
+        </div>
+        <div>
+          <h3>CAD and BIM pipelines</h3>
+          <p>Getting heavy engineering models into fast, interactive experiences without losing what matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="split">
+        <h2>Background</h2>
+        <div>
+          <p>Cameron Software is led by Don Cameron, a senior developer and team lead in .NET, Unity and XR. Some of the work behind it:</p>
+          <ul class="work">
+            <li>
+              <div><div class="t">Multiplayer map table for Apple Vision Pro</div><div class="s">Dev lead. Unity, Cesium, Normcore.</div></div>
+              <a href="https://youtu.be/5ueV_YyDssI">Watch video</a>
+            </li>
+            <li>
+              <div><div class="t">AI geospatial digital twin</div><div class="s">Senior dev. Unity, Cesium, PostGIS, GeoJSON, AI.</div></div>
+              <a href="https://youtu.be/wDlZ9g5zFcA">Watch video</a>
+            </li>
+            <li>
+              <div><div class="t">VR training for electrical helpers</div><div class="s">Dev lead. Unity, Oculus, XRI Toolkit.</div></div>
+              <a href="https://youtu.be/NmTCHq8lI6k">Watch video</a>
+            </li>
+            <li>
+              <div><div class="t">BIM-to-manufacturing pipeline</div><div class="s">Revit to automated residential construction.</div></div>
+              <a href="https://youtu.be/dKlsQ3x5Yn4">Watch video</a>
+            </li>
+          </ul>
+          <p style="margin-top:1.5rem"><a href="/Portfolio/">See the full portfolio</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="split">
+        <h2>Get in touch</h2>
+        <div>
+          <p>Have a problem in your industry that software should already solve? I'd like to hear about it.</p>
+          <a class="big" href="mailto:doncameroncanada@outlook.com">doncameroncanada@outlook.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="y">2026</span> Cameron Software, Victoria, BC</div>
+</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
