@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cameron Software</title>
-<meta name="description" content="Cameron Software solves real-world business problems with software, electronics and mechanical design. Based in Victoria, BC.">
+<meta name="description" content="Cameron Software brings AI, enterprise systems and immersive interfaces together to solve real-world business problems. Based in Victoria, BC.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
@@ -50,8 +50,25 @@
   /* Hero */
   .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--rule); }
   .hero svg.map { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .hero svg.map path { fill: none; stroke: var(--contour); stroke-width: 1.2; }
-  .hero svg.map path.index { stroke-width: 2; }
+  .hero .photo {
+    position: absolute; top: 0; left: 0; width: auto; max-width: none;
+    opacity: 0.55;
+    -webkit-mask-image: radial-gradient(circle at 69.4% 32%, #000 0, #000 11%, transparent 27%);
+            mask-image: radial-gradient(circle at 69.4% 32%, #000 0, #000 11%, transparent 27%);
+  }
+  @media (max-width: 760px) { .hero .photo { opacity: 0.25; } }
+  .hero svg.map circle { fill: none; stroke: var(--contour); stroke-width: 1.2; }
+  .hero svg.map circle.index { stroke-width: 2; }
+  .hero svg.map .core { fill: var(--sea); stroke: none; }
+  .hero svg.map .beam { stroke-width: 2; stroke-linecap: round; fill: none; stroke-dasharray: 1; stroke-dashoffset: 1; animation: beam-in 1.4s cubic-bezier(.3,.7,.2,1) .4s forwards; }
+  .hero svg.map .beam:nth-of-type(2) { animation-delay: .55s; }
+  .hero svg.map .beam:nth-of-type(3) { animation-delay: .7s; }
+  @keyframes beam-in { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .hero svg.map .beam { animation: none; stroke-dashoffset: 0; } }
+  .hero svg.map .from { stop-color: var(--sea); stop-opacity: 0.9; }
+  .hero svg.map .to { stop-color: #FFFFFF; stop-opacity: 0.95; }
+  .hero svg.map text { fill: var(--sea); font-family: "Archivo", sans-serif; }
+  @media (max-width: 760px) { .hero svg.map text { display: none; } }
   .hero .wrap { position: relative; padding-top: 2rem; padding-bottom: 6rem; }
   nav { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
   nav .mark { font-weight: 700; font-variation-settings: "wdth" 112; text-decoration: none; color: var(--ink); }
@@ -66,7 +83,7 @@
     font-weight: 800;
     font-variation-settings: "wdth" 66;
     letter-spacing: -0.02em;
-    max-width: 12ch;
+    max-width: 11ch;
   }
   .lede { margin: 2rem 0 0; max-width: 36rem; font-size: 1.25rem; line-height: 1.5; color: var(--muted); }
   .coords { margin-top: 2.5rem; font-size: 0.875rem; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -160,139 +177,165 @@
     .hero .wrap { padding-bottom: 4rem; }
     section { padding: 3.5rem 0; }
   }
+
+  /* Three pillars */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 2.5rem; border-top: 2px solid var(--ink); }
+  .pillars > div { padding: 1.5rem 1.5rem 1.75rem 0; }
+  .pillars > div + div { padding-left: 1.5rem; border-left: 1px solid var(--rule); }
+  .pillars h3 { font-size: 1.5rem; font-variation-settings: "wdth" 85; color: var(--sea); }
+  .pillars p { color: var(--muted); }
+  .pillars ul { margin: 0; padding-left: 1.1rem; }
+  .pillars li { margin-bottom: 0.25rem; }
+  .meet { margin-top: 2.5rem; padding: 1.5rem 1.75rem; background: var(--paper); border-left: 4px solid var(--sea); }
+  .meet p { margin: 0; max-width: 46rem; font-size: 1.125rem; }
+  .also { margin-top: 1.5rem; font-size: 0.9375rem; color: var(--muted); }
+  .problems .k { display: block; margin-top: 0.35rem; font-size: 0.8125rem; color: var(--muted); }
+  .problems .vid { display: inline-block; margin-top: 0.5rem; font-size: 0.9375rem; }
+  @media (max-width: 760px) {
+    .pillars { grid-template-columns: 1fr; }
+    .pillars > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
+  }
 </style>
 </head>
 <body>
 
 <header class="hero">
+  <img class="photo" src="MR.jpg" alt="" aria-hidden="true">
   <svg class="map" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <g transform="translate(900 300)">
-      <path class="index" d="M-420,40 C-380,-200 -120,-330 120,-300 C360,-270 470,-60 410,150 C350,360 80,430 -150,380 C-360,335 -455,215 -420,40Z"/>
-      <path d="M-350,40 C-315,-160 -100,-265 100,-240 C300,-215 395,-45 345,130 C295,305 70,360 -120,320 C-295,283 -380,185 -350,40Z"/>
-      <path d="M-285,35 C-255,-125 -85,-205 80,-185 C245,-165 320,-30 280,110 C240,250 55,295 -95,262 C-235,232 -308,152 -285,35Z"/>
-      <path d="M-220,30 C-196,-90 -65,-150 60,-135 C185,-120 245,-20 215,90 C185,195 45,230 -70,205 C-178,182 -238,120 -220,30Z"/>
-      <path class="index" d="M-160,25 C-142,-62 -48,-105 42,-94 C132,-83 175,-12 154,68 C133,145 33,170 -50,152 C-128,135 -173,90 -160,25Z"/>
-      <path d="M-102,20 C-90,-36 -30,-63 27,-56 C84,-49 112,-6 98,45 C84,94 21,110 -32,99 C-82,88 -110,60 -102,20Z"/>
-      <path d="M-48,15 C-42,-12 -13,-26 14,-22 C41,-19 54,2 47,26 C40,49 10,56 -15,51 C-39,46 -52,33 -48,15Z"/>
-      <path d="M-500,60 C-460,-270 -150,-420 150,-380 C440,-340 560,-80 490,190 C420,450 90,520 -190,465 C-440,415 -540,280 -500,60Z"/>
-      <path d="M-590,70 C-545,-340 -180,-510 175,-465 C520,-420 660,-100 575,230 C490,545 105,630 -230,560 C-525,500 -640,345 -590,70Z"/>
-      <path class="index" d="M-690,80 C-640,-420 -210,-610 205,-560 C610,-510 770,-120 670,270 C570,650 120,750 -270,665 C-615,590 -750,415 -690,80Z"/>
-      <path d="M-800,95 C-745,-500 -245,-720 235,-660 C705,-600 890,-145 775,315 C660,760 140,875 -315,775 C-715,688 -870,490 -800,95Z"/>
+      <defs>
+        <linearGradient id="g-ai" gradientUnits="userSpaceOnUse" x1="-100" y1="-34" x2="-13.8" y2="16.9"><stop offset="0" class="from"/><stop offset="1" class="to"/></linearGradient>
+        <linearGradient id="g-im" gradientUnits="userSpaceOnUse" x1="130" y1="-34" x2="14.6" y2="18.4"><stop offset="0" class="from"/><stop offset="1" class="to"/></linearGradient>
+        <linearGradient id="g-en" gradientUnits="userSpaceOnUse" x1="20" y1="134" x2="2.9" y2="40.7"><stop offset="0" class="from"/><stop offset="1" class="to"/></linearGradient>
+      </defs>
+      <line class="beam" pathLength="1" x1="-100" y1="-34" x2="-13.8" y2="16.9" stroke="url(#g-ai)"/>
+      <line class="beam" pathLength="1" x1="130" y1="-34" x2="14.6" y2="18.4" stroke="url(#g-im)"/>
+      <line class="beam" pathLength="1" x1="20" y1="134" x2="2.9" y2="40.7" stroke="url(#g-en)"/>
+      <text x="-138" y="-42" fill="#1D6B73" font-size="24" font-weight="700">AI</text>
+      <text x="68" y="-42" fill="#1D6B73" font-size="24" font-weight="700">Immersive</text>
+      <text x="-58" y="158" fill="#1D6B73" font-size="24" font-weight="700">Enterprise</text>
     </g>
   </svg>
   <div class="wrap">
     <nav aria-label="Main">
       <a class="mark" href="/">Cameron Software</a>
       <ul>
+        <li><a href="#what">What we do</a></li>
         <li><a href="#problems">Problems we've solved</a></li>
-        <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#team">Team</a></li>
-        <li><a href="#work">Work</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <h1>Solving real-world business problems with technology.</h1>
-    <p class="lede">We're a small team of senior software, electronics and mechanical specialists. We work directly with business owners and their teams to find practical technology solutions that make people more productive, cut costs and open up new ways to grow.</p>
+    <h1>We're the integrators.</h1>
+    <p class="lede">We connect AI, enterprise software and immersive interfaces to help organizations train people, understand their data and improve operations</p>
     <p class="coords">Victoria, British Columbia &nbsp;48.43° N, 123.37° W</p>
   </div>
 </header>
 
 <main>
 
+  <section id="what">
+    <div class="wrap">
+      <div class="split">
+        <h2>What we do</h2>
+        <div>
+          <p>We work across all three of these worlds, and we specialize in making them work as one system.</p>
+        </div>
+      </div>
+      <div class="pillars">
+        <div>
+          <h3>AI</h3>
+          <p>AI applications built around your documents, images, data and workflows.</p>
+          <ul>
+            <li>LLMs, RAG and AI agents</li>
+            <li>Computer vision and motion analysis</li>
+            <li>Speech and voice control</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Immersive</h3>
+          <p>Interfaces that put people inside the information, from a headset to a wall of screens.</p>
+          <ul>
+            <li>Mixed, augmented and virtual reality</li>
+            <li>Real-time 3D and digital twins</li>
+            <li>Multi-user and geospatial experiences</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Enterprise</h3>
+          <p>The services and integrations that connect your applications, workflows and data.</p>
+          <ul>
+            <li>Back ends, APIs and databases</li>
+            <li>Cloud, containers and DevOps</li>
+            <li>Integration with your business systems</li>
+          </ul>
+        </div>
+      </div>
+      <div class="meet">
+        <p>Where they meet is our specialty: a trainee in mixed reality coached by AI, with results recorded in your learning system. A 3D model of your site that answers questions in plain English from your live data. An automated pipeline to take your CAD/BIM data into robotics simulation.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="problems">
     <div class="wrap">
       <div class="split">
-        <h2>Problems we've solved</h2>
-        <div><p class="muted">These are real results from our past work, not projections.</p></div>
+        <h2>Some of the Problems Our Team has Solved</h2>
+        <div><p class="muted">Selected projects across AI, immersive interfaces and enterprise systems.</p></div>
       </div>
       <ul class="problems">
         <li>
-          <div class="q">Orders and invoices still run on paper and spreadsheets.</div>
-          <div class="a"><p>For a small orthotics manufacturer, we automated ordering and invoicing end to end, then kept the system growing with the business for twenty years.<span class="result">They tripled their workload, and the system paid for itself in nine months.</span></p></div>
+          <div class="q">Your people can't get answers out of your data.</div>
+          <div class="a"><p>We built a geospatial digital twin where you ask questions in plain English and see the answers on a live 3D map, from the whole globe down to a single machine on a factory floor.<span class="k">AI agents, vector search, Cesium, Unity, PostGIS, RabbitMQ, Docker</span><a class="vid" href="https://youtu.be/eq2nvYUxK8s">Watch video</a></p></div>
         </li>
         <li>
-          <div class="q">You have the sales data, but can't see what it's telling you.</div>
-          <div class="a"><p>We built reporting pipelines that pull sales data into clear, usable business intelligence.<span class="result">At one software company, recurring revenue grew 300%.</span></p></div>
+          <div class="q">You're selling land to buyers remotely.</div>
+          <div class="a"><p>A shared Apple Vision Pro experience that lets groups explore sites together, with available building, utility and population data overlaid. A browser version supports viewing outside the headset.<span class="k">Speech, AI, Apple Vision Pro, Normcore, React, Azure, REST</span><a class="vid" href="https://youtu.be/5ueV_YyDssI">Watch video</a></p></div>
         </li>
         <li>
-          <div class="q">Decisions that should take minutes take hours.</div>
-          <div class="a"><p>We designed a rules engine that calculates student loans and grants worth millions of dollars, in real time.<span class="result">Assessments went from hours to minutes.</span></p></div>
+          <div class="q">You need to measure how people move, not just watch them.</div>
+          <div class="a"><p>For a science museum, we delivered a baseball pitching experience that captures and analyzes each visitor's throw with computer vision.<span class="k">Computer vision, motion capture, Python, Unity</span></p></div>
         </li>
         <li>
-          <div class="q">Releases are slow and every one brings new bugs.</div>
-          <div class="a"><p>We rebuilt a product team's development and delivery process around Agile and ISO-9001 practices.<span class="result">Builds went from a week to under an hour, and bugs dropped from 100 a week to 10.</span></p></div>
+          <div class="q">Training is slow, risky and hard to track.</div>
+          <div class="a"><p>We built a VR training app to train electrical apprentices, connected to the client's learning management system.<span class="k">VR, Unity, Meta Quest, SCORM, xAPI</span><a class="vid" href="https://youtu.be/NmTCHq8lI6k">Watch video</a></p></div>
         </li>
         <li>
-          <div class="q">A software project is stalled or failing.</div>
-          <div class="a"><p>We took over an abandoned analytics and IoT platform and rebuilt its architecture, cloud setup and team processes.<span class="result">It shipped two successful production releases.</span></p></div>
+          <div class="q">Physical security teams can't see a situation fast enough.</div>
+          <div class="a"><p>We built a live 3D view of an airport that shows weapon-detection alerts and responding officers as they happen.<span class="k">Real-time 3D, Unity, REST, WebSockets, Docker</span><a class="vid" href="https://youtu.be/wDlZ9g5zFcA">Watch video</a></p></div>
         </li>
         <li>
-          <div class="q">Your market is shrinking and sales are falling with it.</div>
-          <div class="a"><p>During COVID, we added voice commands, smartphone remote control and remote sign-in to a video conferencing product line.<span class="result">Sales rose 30% while the rest of the industry declined.</span></p></div>
+          <div class="q">Your technicians need faster access to service information.</div>
+          <div class="a"><p>We're building an AI diagnostic and repair automotive assistant grounded in factory service manuals. It combines a knowledge graph with vector search so its answers come from verified data.<span class="k">AI agents, RAG, LangGraph, Neo4j, Claude, OpenAI</span></p></div>
         </li>
         <li>
-          <div class="q">Your cloud bill keeps climbing.</div>
-          <div class="a"><p>We set clear Azure standards for how services are sized, shared and shut down.<span class="result">Cloud costs fell 35%.</span></p></div>
+          <div class="q">Your customers need to work hands-free.</div>
+          <div class="a"><p>We added voice commands and smartphone control to a video conferencing product line, allowing users to operate meeting-room equipment without touching shared controls.</p></div>
         </li>
       </ul>
+      <p class="also">Our track record goes back decades: systems that paid for themselves in nine months, builds cut from a week to under an hour, and cloud costs reduced by 35%.</p>
+      <p><a href="/Portfolio/">See the full portfolio</a></p>
     </div>
   </section>
 
-  <section id="how">
+  <section id="industries">
     <div class="wrap">
       <div class="split">
-        <h2>How we work</h2>
+        <h2>Where we've worked</h2>
         <div>
-          <p>We work directly with business owners and the people who do the work. Together we find where time, money or opportunity is being lost, and then we design and build the technology to fix it, whether that's software, electronics, a mechanical device or all three.</p>
-          <p>We start small, prove the idea with real users, and build so it can grow with you.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="capabilities">
-    <div class="wrap">
-      <h2>Capabilities</h2>
-      <div class="caps">
-        <div>
-          <h3>Product and business analysis</h3>
-          <p>Turning "this costs us every week" into a clear plan for what to build.</p>
-          <p class="tech">Requirements, process mapping, prototyping</p>
-        </div>
-        <div>
-          <h3>Business applications</h3>
-          <p>Web, desktop and mobile software your staff and customers actually use.</p>
-          <p class="tech">.NET, C#, ASP.NET, Blazor, React, WPF</p>
-        </div>
-        <div>
-          <h3>Data and integration</h3>
-          <p>Connecting the systems you already have, and turning your data into decisions.</p>
-          <p class="tech">SQL Server, Postgres, Databricks, Power BI</p>
-        </div>
-        <div>
-          <h3>Cloud and security</h3>
-          <p>Systems that stay up, keep data safe and don't overspend.</p>
-          <p class="tech">Azure, Docker, single sign-on, OAuth</p>
-        </div>
-        <div>
-          <h3>AI and automation</h3>
-          <p>Practical AI grounded in your own data, not demos.</p>
-          <p class="tech">Claude, OpenAI, LangGraph, Neo4j, vector search</p>
-        </div>
-        <div class="special">
-          <h3>3D, XR and digital twins</h3>
-          <p>Our specialty: live 3D models of sites, buildings and operations, on any device.</p>
-          <p class="tech">Unity, Cesium, Apple Vision Pro, Meta Quest, PostGIS</p>
-        </div>
-        <div>
-          <h3>Electronics and embedded</h3>
-          <p>Custom hardware, sensors and devices that connect to your software.</p>
-          <p class="tech">Arduino, microcontrollers, IoT. See our <a href="https://youtu.be/EYs9xoKJnow">game engine running on a vintage oscilloscope</a>.</p>
-        </div>
-        <div>
-          <h3>Mechanical design and prototyping</h3>
-          <p>From concept to working prototype for physical products.</p>
-          <p class="tech">CAD, prototyping</p>
+          <ul class="industries">
+            <li>Training</li>
+            <li>Construction and engineering</li>
+            <li>Energy and utilities</li>
+            <li>Land and economic development</li>
+            <li>Healthcare</li>
+            <li>Security and public safety</li>
+            <li>Automotive</li>
+            <li>Museums and education</li>
+            <li>Communications</li>
+          </ul>
+          <p>Past work has involved American Airlines, Johnson &amp; Johnson, Hewlett Packard, IBM, Microsoft, Universal Studios, NEC, Dell, Logitech and Unity Technologies.</p>
+          <p class="muted">But we start with your problem, not your industry.</p>
         </div>
       </div>
     </div>
@@ -303,40 +346,13 @@
       <div class="split">
         <h2>Technologies</h2>
         <dl class="tech-list">
-          <dt>Back end</dt><dd>.NET, C#, REST, SignalR, WebSockets, RabbitMQ, Docker</dd>
-          <dt>Front end</dt><dd>ASP.NET, Blazor, React, JavaScript, WPF, WebGL</dd>
-          <dt>Data</dt><dd>SQL Server, PostgreSQL, PostGIS, MongoDB, Databricks, Power BI, data lakes</dd>
-          <dt>Cloud</dt><dd>Azure, Azure IoT Hub, Azure DevOps, Docker</dd>
-          <dt>AI</dt><dd>Python, Claude, OpenAI, LangGraph, LangChain, Neo4j, pgvector, MCP</dd>
-          <dt>Real-time 3D and XR</dt><dd>Unity, Cesium, Apple Vision Pro, Meta Quest, Normcore, AR/VR/MR</dd>
-          <dt>CAD and BIM</dt><dd>Revit, Navisworks, Pixyz, Autodesk</dd>
-          <dt>Communications</dt><dd>WebRTC, WebSockets, TCP/IP</dd>
-          <dt>Process</dt><dd>Agile, Scrum, ISO-9001, ITIL, CMMI</dd>
+          <dt>AI</dt><dd>Claude, OpenAI, Gemini, LangGraph, LangChain, RAG, AI agents, MCP, Neo4j, pgvector, Voyage, computer vision, motion capture, speech, Azure Cognitive Services, Python</dd>
+          <dt>Immersive</dt><dd>Apple Vision Pro, Meta Quest, MR/AR/VR, Unity, Unreal, Cesium, PolySpatial, Normcore, XR Interaction Toolkit, MRTK, WebGL, Pixyz, Revit, Navisworks</dd>
+          <dt>Enterprise</dt><dd>.NET, C#, ASP.NET, Blazor, React, REST, SignalR, WebSockets, WebRTC, RabbitMQ, Docker, Azure, SQL Server, PostgreSQL, PostGIS, MongoDB, Databricks, Power BI, SCORM, xAPI, Agile, ISO-9001, ITIL</dd>
         </dl>
       </div>
     </div>
   </section>
-
-  <section id="industries">
-    <div class="wrap">
-      <div class="split">
-        <h2>Where we've worked</h2>
-        <div>
-          <ul class="industries">
-            <li>Healthcare</li>
-            <li>Construction and engineering</li>
-            <li>Energy and resources</li>
-            <li>Communications</li>
-            <li>Security and public safety</li>
-            <li>Automotive service</li>
-          </ul>
-          <p>We've also built public-sector systems that handle millions of dollars reliably. Past work has involved Universal Studios, American Airlines, Johnson &amp; Johnson, NEC, Dell, Logitech and Unity Technologies.</p>
-          <p class="muted">But we start with your problem, not your industry.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="team">
     <div class="wrap">
       <h2>Team</h2>
@@ -344,8 +360,8 @@
         <img src="don.jpg" alt="Don Cameron" width="176" height="176">
         <div>
           <h3>Don Cameron</h3>
-          <p class="role">Founder and technical lead</p>
-          <p>Don Cameron has built software across a wide range of work: mapping systems for oil companies, large government platforms, award-winning video conferencing products, 3D digital twins and AI. He has led teams of up to 15, turned around failing projects, and spent twenty years as the technology partner to a small manufacturer, where the system he built let them triple their workload and paid for itself in nine months. He's based in Victoria, BC.</p>
+          <p class="role">Director and technical lead</p>
+          <p>Don Cameron has built software across a wide range of work: 3D digital twins and AI, mapping systems for oil companies, large government platforms, award-winning video conferencing products, . He has led many teams and turned around many failing projects. He's based in Victoria, BC.</p>
           <p><a href="https://www.linkedin.com/in/don-cameron-82a4a3123">Don on LinkedIn</a></p>
         </div>
       </div>
@@ -378,84 +394,6 @@
     </div>
   </section>
 
-  <section id="work">
-    <div class="wrap">
-      <div class="split">
-        <h2>Real-time 3D work</h2>
-        <div>
-          <p class="muted">Our specialty, in action. Each project links to a short video.</p>
-          <ul class="work">
-            <li>
-              <div>
-                <div class="t">Shared 3D site viewer for Apple Vision Pro</div>
-                <div class="s">Lets a group stand around any land site in the world together, with buildings, utilities and population data overlaid, then take a web version home.</div>
-                <div class="k">Unity, Cesium, Normcore, React, WebGL</div>
-              </div>
-              <a href="https://youtu.be/5ueV_YyDssI">Watch video</a>
-            </li>
-            <li>
-              <div>
-                <div class="t">VR training for electrical helpers</div>
-                <div class="s">Led a team of five to deliver hands-on safety training in VR against a tight, critical deadline. Trainees practise without risk.</div>
-                <div class="k">Unity, Meta Quest, XR Interaction Toolkit</div>
-              </div>
-              <a href="https://youtu.be/NmTCHq8lI6k">Watch video</a>
-            </li>
-            <li>
-              <div>
-                <div class="t">Theme park design board for Universal Studios</div>
-                <div class="s">A motion-capture design wall that let designers lay out a park together in real time across multiple large displays.</div>
-                <div class="k">Unity, OptiTrack, Pixyz, RabbitMQ</div>
-              </div>
-              <a href="https://youtu.be/_Wn8Mz6ifKw">Watch video</a>
-            </li>
-            <li>
-              <div>
-                <div class="t">AI geospatial digital twin</div>
-                <div class="s">Ask questions about any location's data in plain English and see the answers on a live 3D map.</div>
-                <div class="k">Unity, Cesium, PostGIS, Claude</div>
-              </div>
-              <a href="https://youtu.be/wDlZ9g5zFcA">Watch video</a>
-            </li>
-            <li>
-              <div>
-                <div class="t">Real-time weapon detection twin</div>
-                <div class="s">Shows weapon-detection alerts and responding officers live on a 3D model of an airport, so security teams see a situation at a glance.</div>
-                <div class="k">Unity, MongoDB, Docker, WebSockets</div>
-              </div>
-              <a href="https://youtu.be/wDlZ9g5zFcA">Watch video</a>
-            </li>
-            <li>
-              <div>
-                <div class="t">BIM-to-manufacturing pipeline</div>
-                <div class="s">Takes a building design in Revit straight through to manufacturing data for automated residential construction, cutting out manual re-entry.</div>
-                <div class="k">Revit, C#</div>
-              </div>
-              <a href="https://youtu.be/dKlsQ3x5Yn4">Watch video</a>
-            </li>
-            <li>
-              <div>
-                <div class="t">Rescuing a slow VR substation design app</div>
-                <div class="s">Brought in to fix a VR app for electrical substation design that was too slow to use. Built a reusable CAD-to-real-time pipeline and made it run smoothly.</div>
-                <div class="k">Unity, CAD/BIM pipeline</div>
-              </div>
-              <a href="https://youtu.be/RBUzp4FKXjE">Watch video</a>
-            </li>
-            <li>
-              <div>
-                <div class="t">Hospital patient flow simulation</div>
-                <div class="s">Simulates patients moving through an emergency department so staff and space can be planned before the crunch.</div>
-                <div class="k">Unity, SimSharp</div>
-              </div>
-              <a href="https://youtu.be/2C96c89bt9I">Watch video</a>
-            </li>
-          </ul>
-          <p style="margin-top:1.5rem"><a href="/Portfolio/">See the full real-time 3D portfolio</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="contact" class="contact">
     <div class="wrap">
       <div class="split">
@@ -472,5 +410,23 @@
   <div class="wrap">© <span id="y">2026</span> Cameron Software, Victoria, BC</div>
 </footer>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+<script>
+  // Put the fingertip light in MR.jpg (69.4% across, 32% down) where the AI, Immersive and Enterprise labels meet.
+  (function () {
+    var hero = document.querySelector(".hero"), img = hero.querySelector(".photo");
+    function place() {
+      if (!img.naturalWidth) return;
+      var W = hero.clientWidth, H = hero.clientHeight, s = Math.max(W / 1200, H / 700);
+      var x = W / 2 + 300 * s, y = H / 2 - 25 * s;
+      var h = H * 1.6, w = h * img.naturalWidth / img.naturalHeight;
+      img.style.height = h + "px";
+      img.style.left = (x - 0.694 * w) + "px";
+      img.style.top = (y - 0.32 * h) + "px";
+    }
+    img.addEventListener("load", place);
+    window.addEventListener("resize", place);
+    place();
+  })();
+</script>
 </body>
 </html>
